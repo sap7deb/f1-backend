@@ -15,9 +15,8 @@ import lombok.Setter;
 public class Driver {
     @Id
     @Column(name = "id")
-    private Integer driverId;
-
-    private Integer number;
+    private String driverId;
+    @Column(name = "permanent_number")
     private String code;
     @Column(name = "first_name")
     private String firstname;

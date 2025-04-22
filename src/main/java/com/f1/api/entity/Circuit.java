@@ -16,14 +16,13 @@ import lombok.Setter;
 public class Circuit {
     @Id
     @Column(name = "id")
-    private Integer id;
+    private String id;
 
     @Column(name = "place_name")
     private String placeName;
 
     private String name;
     @Column(name = "country_id")
-    private String location;
     private String country;
     private Double latitude;
     private Double longitude;

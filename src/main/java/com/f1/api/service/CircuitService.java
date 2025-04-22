@@ -19,11 +19,14 @@ public class CircuitService {
     public List<CircuitDTO> getAllCircuits() {
         return repository.findAll().stream()
                 .map(c -> new CircuitDTO(
-                        c.getCircuitId(),
+                        c.getId(),
+                        c.getPlaceName(),
                         c.getName(),
-                        c.getLocation(),
                         c.getCountry(),
-                        c.getUrl()))
+                        c.getLatitude(),
+                        c.getLongitude(),
+                        c.getTurns()
+                       ))
                 .toList();
     }
 }

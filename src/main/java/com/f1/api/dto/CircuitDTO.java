@@ -1,9 +1,12 @@
 package com.f1.api.dto;
 
 public record CircuitDTO(
-        Integer circuitId,
+        String circuitId,
         String name,
-        String location,
+        String placeName,
         String country,
-        String url
-) {}
+        Double latitude,
+        Double longitude,
+        Double turns
+) {
+}

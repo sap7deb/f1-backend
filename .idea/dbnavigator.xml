@@ -24,7 +24,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="08ec3945-0236-4f7d-9ca9-512823ffe042">
-      <console name="Connection" type="STANDARD" schema="f1db" session="Main"><![CDATA[select * from circuit;
+      <console name="Connection" type="STANDARD" schema="f1db" session="Main"><![CDATA[select * from driver;
 
 select * from race_data where type='RACE_RESULT';
 
@@ -44,6 +44,7 @@ select type, count(*) from race_data group by type;]]></console>
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="08ec3945-0236-4f7d-9ca9-512823ffe042" dataset="f1db.season_constructor" active-filter-id="" />
+    <filter-actions connection-id="08ec3945-0236-4f7d-9ca9-512823ffe042" dataset="f1db.race_data" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
