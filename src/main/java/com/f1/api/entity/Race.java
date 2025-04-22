@@ -22,4 +22,8 @@ public class Race {
     private String name;
     private String date;
     private String time;
+
+    @ManyToOne
+    @JoinColumn(name = "circuit_id", referencedColumnName = "id", insertable = false, updatable = false)
+    private Circuit circuit;
 }
