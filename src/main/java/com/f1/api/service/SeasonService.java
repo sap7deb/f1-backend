@@ -9,10 +9,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class SeasonService {
-   // @Autowired
-    private final SeasonRepository repository;
+    @Autowired
+    private SeasonRepository repository;
 
     public List<SeasonDTO> getAllSeasons() {
         return repository.findAll().stream()

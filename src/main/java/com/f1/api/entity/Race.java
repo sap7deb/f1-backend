@@ -17,7 +17,7 @@ public class Race {
     private Integer year;
     private Integer round;
     @Column(name = "circuit_id")
-    private Integer circuitId;
+    private String circuitId;
     @Column(name = "official_name")
     private String name;
     private String date;

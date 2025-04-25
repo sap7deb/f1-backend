@@ -2,20 +2,24 @@ package com.f1.api.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Data
-@Entity(name = "race_data")
+@Entity
+@Getter
+@Setter
 @Table(name = "race_data")
 public class Result {
-    @Id
-    @Column(name = "resultId")
-    private Integer id;
 
+    @Id
     @Column(name = "race_id")
     private Integer raceId;
 
+    private String type;
+
     @Column(name = "driver_id")
-    private Integer driverId;
+    private String driverId;
 
     @Column(name = "constructor_id")
     private Integer constructorId;
@@ -35,22 +39,13 @@ public class Result {
     @Column(name = "position_display_order")
     private Integer position;
     @Column(name = "race_points")
-    private Float points;
+    private Integer points;
     @Column(name = "race_laps")
     private Integer laps;
     @Column(name = "race_time")
     private String time;
     @Column(name = "fastest_lap_lap")
     private Integer fastestLap;
-    private Integer rank;
     @Column(name = "fastest_lap_time")
     private String fastestLapTime;
-
-
-    @Column(name = "statusId")
-    private Integer statusId;
-
-    @ManyToOne
-    @JoinColumn(name = "statusId", referencedColumnName = "statusId", insertable = false, updatable = false)
-    private Status status;
 }

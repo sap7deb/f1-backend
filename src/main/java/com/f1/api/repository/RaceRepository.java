@@ -10,6 +10,6 @@ import java.util.List;
 public interface RaceRepository extends JpaRepository<Race, Integer> {
     List<Race> findByYear(Integer year);
     List<Race> findByYearAndRound(Integer year, Integer round);
-    List<Race> findByCircuitId(Integer circuitId);
+    List<Race> findByCircuitId(String circuitId);
     List<Race> findByNameContainingIgnoreCase(String name);
 }

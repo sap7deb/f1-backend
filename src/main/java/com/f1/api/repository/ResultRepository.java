@@ -19,4 +19,7 @@ public interface ResultRepository extends JpaRepository<Result, Integer> {
 //
 //    @Query("SELECT r FROM race_data r JOIN r.race race WHERE race.year = :year AND r.position_number = 1")
 //    List<Result> findRaceWinnersByYear(@Param("year") Integer year);
+
+    List<Result> findByRaceId(Integer raceId);
+
 }

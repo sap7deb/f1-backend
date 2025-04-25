@@ -8,16 +8,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 public class RaceService {
-  //  @Autowired
-    private final RaceRepository repository;
+    @Autowired
+    private RaceRepository repository;
 
     public List<RaceDTO> getAllRaces() {
         return repository.findAll().stream().map(r -> new RaceDTO(
-                r.getRaceId(), r.getYear(), r.getRound(), r.getName(), r.getDate(), r.getTime()
+                r.getRaceId(), r.getCircuitId(), r.getYear(), r.getRound(), r.getName(), r.getDate(), r.getTime()
+        )).toList();
+    }
+
+    public RaceDTO getRaceById(Integer id) {
+        Race r = repository.findById(id).orElseThrow();
+        return new RaceDTO(r.getRaceId(), r.getCircuitId(), r.getYear(), r.getRound(), r.getName(), r.getDate(), r.getTime());
+    }
+
+    public List<RaceDTO> getRacesByYear(Integer year) {
+        return repository.findByYear(year).stream().map(r -> new RaceDTO(
+                r.getRaceId(), r.getCircuitId(), r.getYear(), r.getRound(), r.getName(), r.getDate(), r.getTime()
+        )).toList();
+    }
+
+    public List<RaceDTO> getRacesByCircuit(String circuitId) {
+        return repository.findByCircuitId(circuitId).stream().map(r -> new RaceDTO(
+                r.getRaceId(), r.getCircuitId(), r.getYear(), r.getRound(), r.getName(), r.getDate(), r.getTime()
         )).toList();
     }
 }

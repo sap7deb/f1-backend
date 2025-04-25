@@ -15,7 +15,7 @@ import lombok.Setter;
 public class Constructor {
     @Id
     @Column(name = "id")
-    private Integer id;
+    private String id;
 
     @Column(name = "country_id")
     private String country;
