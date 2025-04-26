@@ -18,6 +18,6 @@ public class SwaggerConfig {
                         .version("v1.0")
                         .contact(new Contact()
                                 .name("Saptarshi's Dev Garage")
-                                .url("https://github.com/your-profile")));
+                                .url("https://github.com/sap7deb")));
     }
 }

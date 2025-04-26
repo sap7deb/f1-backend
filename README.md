@@ -88,7 +88,6 @@ The API will start at:
 
 - Add Pagination & Sorting.
 - Implement Search endpoints (by driver name, constructor, etc.).
-- Add Swagger API Documentation.
 - JWT-based Authentication for protected endpoints.
 - Unit Tests and Integration Tests.
 
@@ -109,6 +108,10 @@ This project is licensed under the **MIT License** — feel free to use and modi
 ---
 
 # 📣 Quick Preview
+
+✅ Swagger UI: http://localhost:8080/swagger-ui.html
+
+✅ API Docs: http://localhost:8080/api-docs
 
 ✅ Get all seasons → `GET /api/v1/seasons`
 
