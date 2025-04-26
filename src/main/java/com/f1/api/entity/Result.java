@@ -3,19 +3,22 @@ package com.f1.api.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Data
+@NoArgsConstructor
 @Entity
 @Getter
 @Setter
 @Table(name = "race_data")
+@IdClass(ResultId.class)
 public class Result {
 
     @Id
     @Column(name = "race_id")
     private Integer raceId;
 
+    @Id
     private String type;
 
     @Column(name = "driver_id")
@@ -36,6 +39,7 @@ public class Result {
     @JoinColumn(name = "race_id", referencedColumnName = "id", insertable = false, updatable = false)
     private Race race;
 
+    @Id
     @Column(name = "position_display_order")
     private Integer position;
     @Column(name = "race_points")

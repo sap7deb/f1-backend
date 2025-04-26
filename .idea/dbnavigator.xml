@@ -28,7 +28,7 @@
 select * from constructor;
 select * from race;
 
-select * from race_data where race_id =1000 and type="RACE_RESULT";
+select * from race_data where race_id =1100;
 
 select type, count(*) from race_data group by type;]]></console>
     </connection>
@@ -37,9 +37,7 @@ select type, count(*) from race_data group by type;]]></console>
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="08ec3945-0236-4f7d-9ca9-512823ffe042" object-ref="consoles/Connection" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="08ec3945-0236-4f7d-9ca9-512823ffe042" />

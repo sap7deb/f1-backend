@@ -1,6 +1,7 @@
 package com.f1.api.repository;
 
 import com.f1.api.entity.Result;
+import com.f1.api.entity.ResultId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ResultRepository extends JpaRepository<Result, Integer> {
+public interface ResultRepository extends JpaRepository<Result, ResultId    > {
 //    List<Result> findByRaceId(Integer raceId);
 //    List<Result> findByDriverId(Integer driverId);
 //    List<Result> findByConstructorId(Integer constructorId);

@@ -29,10 +29,14 @@ public class ResultService {
 
     public List<ResultDTO> getResultsByRaceId(Integer raceId) {
         return resultRepository.findByRaceId(raceId).stream()
-                //.filter(r->r.getType().equalsIgnoreCase("RACE_RESULT"))
+                .filter(r -> "RACE_RESULT".equalsIgnoreCase(r.getType()))
+                .filter(r -> r.getPosition() != null && r.getPosition() > 0)
                 .map(r -> new ResultDTO(
-                        r.getRaceId(), r.getDriverId(), r.getConstructorId(),
-                        r.getPosition(), r.getPoints()))
+                        r.getRaceId(),
+                        r.getDriverId(),
+                        r.getConstructorId(),
+                        r.getPosition(),
+                        r.getPoints()))
                 .toList();
     }
 
@@ -44,8 +48,8 @@ public class ResultService {
 
 
         return resultRepository.findAll().stream()
-                .filter(r -> r.getPosition() == 1)
-                .filter(r->r.getType().equalsIgnoreCase("RACE_RESULT"))
+                .filter(r -> r.getPosition() != null && r.getPosition() == 1)
+                .filter(r -> "RACE_RESULT".equalsIgnoreCase(r.getType()))
                 .filter(r -> raceIdsForYear.contains(r.getRaceId()))
                 .map(r -> {
                     Map<String, Object> winnerMap = new LinkedHashMap<>();
@@ -53,16 +57,19 @@ public class ResultService {
                     winnerMap.put("position", r.getPosition());
                     winnerMap.put("points", r.getPoints());
 
-                    driverRepository.findById(r.getDriverId()).ifPresent(d -> {
-                        winnerMap.put("driver", d.getFirstname() + " " + d.getLastname());
-                        winnerMap.put("nationality", d.getNationality());
-                    });
+                    driverRepository.findById(r.getDriverId())
+                            .ifPresent(d -> {
+                                winnerMap.put("driver", d.getFirstname() + " " + d.getLastname());
+                                winnerMap.put("nationality", d.getNationality());
+                            });
 
-                    constructorRepository.findById(r.getConstructorId()).ifPresent(c -> {
-                        winnerMap.put("constructor", c.getFull_name());
-                    });
+                    constructorRepository.findById(r.getConstructorId())
+                            .ifPresent(c -> {
+                                winnerMap.put("constructor", c.getName());
+                            });
 
                     return winnerMap;
-                }).toList();
+                })
+                .toList();
     }
 }
