@@ -54,8 +54,8 @@ This project uses **Spring Boot**, **JPA (Hibernate)**, and **SQLite** for fast,
 1. **Clone the Repository**
 
 ```bash
-git clone git@github.com:sap7deb/f1-backend.git
-cd f1-backend-api
+ git clone git@github.com:sap7deb/f1-backend.git
+ cd f1-backend-api
 ```
 
 2. **Update application.properties**
@@ -76,13 +76,18 @@ spring.jpa.hibernate.ddl-auto=none
 4. **Build and Run**
 
 ```bash
-./mvnw spring-boot:run
+  ./mvnw spring-boot:run
 ```
 
 The API will start at:  
 ➡️ `http://localhost:8080/api/v1`
 
 ---
+5. **Downloading Latest F1DB**
+
+```bash
+  ./setup_f1db.sh  
+```
 
 ## 🧹 Future Enhancements
 
