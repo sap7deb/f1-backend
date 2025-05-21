@@ -1,10 +1,12 @@
 package com.f1.api.entity;
 
+import com.f1.api.entityData.ResultId;
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @NoArgsConstructor
 @Entity
@@ -47,9 +49,11 @@ public class Result {
     @Column(name = "race_laps")
     private Integer laps;
     @Column(name = "race_time")
-    private String time;
+    private String lapTime;
     @Column(name = "fastest_lap_lap")
     private Integer fastestLap;
     @Column(name = "fastest_lap_time")
     private String fastestLapTime;
+    @Column(name = "race_gap")
+    private String raceGap;
 }

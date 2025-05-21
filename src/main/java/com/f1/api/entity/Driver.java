@@ -27,4 +27,7 @@ public class Driver {
     @Column(name = "nationality_country_id")
     private String nationality;
 
+//    @ManyToOne
+//    @JoinColumn(name = "id", referencedColumnName = "driver_id", insertable = false, updatable = false)
+//    private RaceDriverStanding raceDriverStanding;
 }

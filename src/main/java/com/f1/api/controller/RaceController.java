@@ -1,8 +1,9 @@
 package com.f1.api.controller;
 
+import com.f1.api.dto.RaceStandingsDTO;
 import com.f1.api.dto.RaceDTO;
 import com.f1.api.dto.ResultDTO;
-import com.f1.api.entity.Race;
+import com.f1.api.service.RaceStandingService;
 import com.f1.api.service.RaceService;
 import com.f1.api.service.ResultService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class RaceController {
 
     @Autowired
     private ResultService resultService;
+
+    @Autowired
+    private RaceStandingService raceStandingService;
 
     @GetMapping
     public List<RaceDTO> getAllRaces() {
@@ -48,5 +52,10 @@ public class RaceController {
     @GetMapping("/winners/{year}")
     public List<Map<String, Object>> getWinnersByYear(@PathVariable Integer year) {
         return resultService.getWinnersByYear(year);
+    }
+
+    @GetMapping("/{id}/standings")
+    public List<RaceStandingsDTO> getDriverStandingRaceId(@PathVariable Integer id) {
+        return raceStandingService.getDriverStandingsByRaceId(id);
     }
 }

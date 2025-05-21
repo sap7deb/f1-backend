@@ -1,4 +1,4 @@
-package com.f1.api.entity;
+package com.f1.api.entityData;
 
 import lombok.Data;
 import java.io.Serializable;

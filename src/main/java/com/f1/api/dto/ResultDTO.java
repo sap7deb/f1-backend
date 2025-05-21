@@ -5,5 +5,7 @@ public record ResultDTO(
         String driverId,
         Integer constructorId,
         Integer position,
-        Integer points
+        Integer points,
+        String lapTime,
+        String raceGap
 ) {}
